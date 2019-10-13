@@ -1,1 +1,13 @@
-<p>login works!</p>
+<h1 mat-dialog-title>Ingreso La Comanda</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input [(ngModel)]="miEmpleadoLogin.usuario" matInput  placeholder="Usuario">
+  </mat-form-field><br>
+  <mat-form-field>
+    <input [(ngModel)]="miEmpleadoLogin.clave" matInput type="password" placeholder="Clave">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close] = "miEmpleadoLogin" cdkFocusInitial>Aceptar</button>
+</div>

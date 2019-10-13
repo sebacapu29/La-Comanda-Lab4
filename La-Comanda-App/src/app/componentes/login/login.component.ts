@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {IEmpleadoLogin, Empleado} from '../../clases/empleado';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  miEmpleadoLogin:IEmpleadoLogin;
 
-  ngOnInit() {
-  }
+  constructor(public dialogRef: MatDialogRef<LoginComponent>,
+    @Inject(MAT_DIALOG_DATA) public mensaje:string) { 
+      this.miEmpleadoLogin = new Empleado('','');
+    }
+    
+    ngOnInit(){
+    }
 
+    onNoClick(): void {
+      this.dialogRef.close();
+    }
 }
