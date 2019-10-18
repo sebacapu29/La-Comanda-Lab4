@@ -1,0 +1,28 @@
+.example-container{
+    background-color: white;
+    display: inline-block;
+    margin-left: 40%;
+    margin-top: 10%;
+    opacity: 0.8;
+    padding: 35px;
+    border-width:10px;
+    border-color: black;
+    /* border: "1px solid black"; */
+}
+mat-form-field{
+    display: inline;
+}
+h1{
+    text-align: center;
+    color: white;
+    background-color:chocolate;
+    opacity: 0.5;
+}
+.btnCancelar{
+    padding: 5px;
+    margin-left: 25px;
+    margin-right: 155px;
+}
+.btnAceptar{
+    padding: 5px;
+}

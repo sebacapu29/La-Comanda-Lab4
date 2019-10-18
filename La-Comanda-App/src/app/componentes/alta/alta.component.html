@@ -1,0 +1,31 @@
+
+<div [ngStyle]="{width:'1500px' , height:'800px',background: 'url(assets/bar.jpg' +')'}">
+    <div class="example-container">
+        <h1>Alta De Empleado</h1>
+        <mat-form-field>
+          <input matInput placeholder="Nombre">
+        </mat-form-field>
+      
+        <mat-form-field>
+            <input matInput placeholder="Apellido">
+          </mat-form-field>
+      
+        <mat-form-field>
+          <mat-select placeholder="Tipo">
+            <mat-option value="option">Usuario</mat-option>
+            <mat-option value="option">Administrador</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Sector">
+            <mat-option value="option">Barra de Tragos</mat-option>
+            <mat-option value="option">Cocina</mat-option>
+            <mat-option value="option">Candy Bar</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div mat-dialog-actions>
+                <button mat-button class="btn btn-danger btnCancelar">Cancelar</button>
+                <button mat-button cdkFocusInitial class="btn btn-success btnAceptar" (click)="enviarEmpleado()">Aceptar</button>
+        </div>        
+      </div>
+</div>

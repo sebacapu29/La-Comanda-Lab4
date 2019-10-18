@@ -11,16 +11,24 @@ import {MatButtonModule,
         MatDialogModule, 
         MatFormFieldModule, 
         MatSliderModule,
-        MatInputModule} from '@angular/material';
+        MatInputModule,
+        MatSelectModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 import { PagenotfoundComponent } from './componentes/pagenotfound/pagenotfound.component';
+import { AltaComponent } from './componentes/alta/alta.component';
+import { BienvenidoComponent } from './componentes/bienvenido/bienvenido.component';
+import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    AltaComponent,
+    BienvenidoComponent,
+    CabeceraComponent
   ],
   imports: [
     BrowserModule,
@@ -32,13 +40,10 @@ import { PagenotfoundComponent } from './componentes/pagenotfound/pagenotfound.c
     FormsModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule,
+    MatSelectModule
     ],
-    // exports:[
-    //   MatMenuModule,
-    //   MatDialogModule,
-    //   MatButtonModule
-    // ],
     entryComponents:[LoginComponent],
   providers: [],
   bootstrap: [AppComponent]
