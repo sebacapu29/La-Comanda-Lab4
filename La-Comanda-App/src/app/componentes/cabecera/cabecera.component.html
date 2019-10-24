@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="https://sebacapurrolacomanda.000webhostapp.com/">La Comanda</a>
+        <a class="navbar-brand" href="https://sebacapurrolacomanda.000webhostapp.com/documentacion"  target="_blank">Documentación</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav md-auto">
             <li class="nav-item active">
               <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
@@ -13,7 +13,7 @@
               <a class="nav-link"(click)="openDialog()">Login</a>
             </li>
             <li class="nav-item" *ngIf="isLogin">
-                <a class="nav-link" href="#" (click)="logOut()">Log Out</a>
+                <a class="nav-link" href="#" (click)="logOut()">Log Out {{usuario}}</a>
               </li>
             <li class="nav-item" *ngIf="!isLogin">
                 <a class="nav-link" href="/alta">Registrate</a>

@@ -19,6 +19,12 @@ import { PagenotfoundComponent } from './componentes/pagenotfound/pagenotfound.c
 import { AltaComponent } from './componentes/alta/alta.component';
 import { BienvenidoComponent } from './componentes/bienvenido/bienvenido.component';
 import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
+import { MatcabeceraComponent } from './componentes/matcabecera/matcabecera.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -28,7 +34,8 @@ import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
     PagenotfoundComponent,
     AltaComponent,
     BienvenidoComponent,
-    CabeceraComponent
+    CabeceraComponent,
+    MatcabeceraComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +49,12 @@ import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
     MatFormFieldModule,
     MatInputModule,
     HttpClientModule,
-    MatSelectModule
+    MatSelectModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
     ],
     entryComponents:[LoginComponent],
   providers: [],

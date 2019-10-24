@@ -1,5 +1,6 @@
 
-<div [ngStyle]="{width:'1500px' , height:'800px',background: 'url(assets/bar.jpg' +')'}">
+<div [ngStyle]="{ width:'1325px' , height:'800px',background: 'url(assets/image-restaurant.jpg' +')'}">
+
     <div class="example-container">
         <h1>Alta De Empleado</h1>
         <mat-form-field>
@@ -24,7 +25,7 @@
           </mat-select>
         </mat-form-field>
         <div mat-dialog-actions>
-                <button mat-button class="btn btn-danger btnCancelar">Cancelar</button>
+                <button mat-button class="btn btn-danger btnCancelar" (click)="backToHome()">Cancelar</button>
                 <button mat-button cdkFocusInitial class="btn btn-success btnAceptar" (click)="enviarEmpleado()">Aceptar</button>
         </div>        
       </div>
