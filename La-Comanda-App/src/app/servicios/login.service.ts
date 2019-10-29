@@ -21,6 +21,12 @@ export class LoginService {
     return this.loginService.postRequest(paramLogin,bodyLogin)
                      .toPromise();
   }
+  validarCaptcha(strCaptcha:string){
+    const paramLogin = "/recaptacha";
+    const bodyLogin = {captcha:strCaptcha};
+    return this.loginService.postRequest(paramLogin,bodyLogin)
+                     .toPromise();
+  }
   isLoggedIn(){
     const usuarioLogueado = localStorage.getItem("usuarioToken"); 
     if(usuarioLogueado){

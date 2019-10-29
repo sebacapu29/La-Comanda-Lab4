@@ -21,3 +21,11 @@ margin: 0;
 .mat-list-item {
   float: right;
 }
+.responsive {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  color: white;
+  text-align: center; 
+   background-image: url("../../../assets/image-restaurant.jpg");
+}

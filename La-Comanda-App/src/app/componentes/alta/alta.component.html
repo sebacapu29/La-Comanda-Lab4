@@ -1,32 +1,39 @@
 
-<div [ngStyle]="{ width:'1325px' , height:'800px',background: 'url(assets/image-restaurant.jpg' +')'}">
-
     <div class="example-container">
         <h1>Alta De Empleado</h1>
         <mat-form-field>
-          <input matInput placeholder="Nombre">
-        </mat-form-field>
-      
+          <input matInput placeholder="Nombre" [(ngModel)]="nombre">
+        </mat-form-field>   
         <mat-form-field>
-            <input matInput placeholder="Apellido">
+            <input matInput placeholder="Apellido" [(ngModel)]="apellido">
           </mat-form-field>
-      
+          <mat-form-field>
+              <input matInput placeholder="Usuario" [(ngModel)]="usuario" name="email">
+            </mat-form-field>
         <mat-form-field>
-          <mat-select placeholder="Tipo">
+          <mat-select placeholder="Tipo"  [(ngModel)]="tipo">
             <mat-option value="option">Usuario</mat-option>
+            <mat-option value="option">Cocinero</mat-option>
+            <mat-option value="option">Mozo</mat-option>
             <mat-option value="option">Administrador</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field>
-          <mat-select placeholder="Sector">
+          <mat-select placeholder="Sector" [(ngModel)]="sector">
             <mat-option value="option">Barra de Tragos</mat-option>
             <mat-option value="option">Cocina</mat-option>
             <mat-option value="option">Candy Bar</mat-option>
           </mat-select>
         </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Clave" type="password" [(ngModel)]="clave">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="Reingrese Clave" type="password" [(ngModel)]="claveReing">
+            </mat-form-field>
         <div mat-dialog-actions>
-                <button mat-button class="btn btn-danger btnCancelar" (click)="backToHome()">Cancelar</button>
+                <button mat-button class="btn btn-secondary btnCancelar" (click)="backToHome()">Cancelar</button>
                 <button mat-button cdkFocusInitial class="btn btn-success btnAceptar" (click)="enviarEmpleado()">Aceptar</button>
-        </div>        
+        </div>   
       </div>
-</div>
+  

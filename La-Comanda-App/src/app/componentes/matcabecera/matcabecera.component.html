@@ -7,7 +7,9 @@
     <mat-nav-list >
       <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       <div *ngIf="!isLogin" ><a class="nav-link"(click)="openDialog()">Login</a></div>
-      <div *ngIf="isLogin"> <a class="nav-link" href="#" (click)="logOut()">Log Out {{usuario}}</a></div>
+      <div *ngIf="isLogin"> <a class="nav-link" href="#" (click)="logOut()">Log Out</a></div>
+      <div *ngIf="isLogin"> <a class="nav-link" (click)="verListaPedidos()">Lista Pedidos</a></div>
+      <div *ngIf="isLogin"> <a class="nav-link" href="#" (click)="logOut()" style="background-color: orange">{{msjBienvenida}}</a></div>
       <div *ngIf="!isLogin"><a class="nav-link" href="/alta">Registrate</a></div>
     </mat-nav-list>
   </mat-sidenav>
@@ -24,6 +26,9 @@
       <span>La Comanda</span>
     </mat-toolbar>
     <!-- Add Content Here -->
-    <ng-content></ng-content>
+    <div class="responsive">
+        <ng-content>
+        </ng-content>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

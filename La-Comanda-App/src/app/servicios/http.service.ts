@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class HttpService {
 
-  public urlBase:string = "https://cors-anywhere.herokuapp.com/"+"http://sebacapurrolacomanda.000webhostapp.com"; //LOCAL
-  // public urlBase:string = "https://cors-anywhere.herokuapp.com/"+"https://sebacapurrolacomanda.000webhostapp.com"; // DEPLOYADA
+  // public urlBase:string = "https://cors-anywhere.herokuapp.com/"+"http://sebacapurrolacomanda.000webhostapp.com"; //LOCAL
+  public urlBase:string = "https://cors-anywhere.herokuapp.com/"+"https://sebacapurrolacomanda.000webhostapp.com"; // DEPLOYADA
 
   constructor(private http:HttpClient) { }
 

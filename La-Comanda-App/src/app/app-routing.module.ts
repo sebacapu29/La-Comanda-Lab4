@@ -7,6 +7,7 @@ import {AltaComponent} from './componentes/alta/alta.component';
 import { BienvenidoComponent } from './componentes/bienvenido/bienvenido.component';
 import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 import { CanActivateGuard } from './can-activate.guard';
+import { PedidosComponent } from './componentes/pedidos/pedidos.component';
 
 const routes: Routes = [
     { path:'login', component: LoginComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
     {path:'pagenotfound', component: PagenotfoundComponent},
     {path:'alta',component:AltaComponent},
     {path:'cabecera',component:CabeceraComponent,canActivate:[CanActivateGuard]},
-    {path:'bienvenido',component:BienvenidoComponent}
+    {path:'bienvenido',component:BienvenidoComponent},
+    {path:'pedidos',component:PedidosComponent}
 ];
 
 @NgModule({

@@ -1,13 +1,15 @@
-<h1 mat-dialog-title>Ingreso La Comanda</h1>
-<div mat-dialog-content>
-  <mat-form-field>
-    <input [(ngModel)]="miEmpleadoLogin.usuario" matInput  placeholder="Usuario">
-  </mat-form-field><br>
-  <mat-form-field>
-    <input [(ngModel)]="miEmpleadoLogin.clave" matInput type="password" placeholder="Clave">
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button [mat-dialog-close] = "miEmpleadoLogin" cdkFocusInitial>Aceptar</button>
-</div>
+  <h1 mat-dialog-title>Ingreso La Comanda</h1>
+  <div mat-dialog-content style="align-items: center">
+    <mat-form-field [hideRequiredMarker]>
+      <input [(ngModel)]="miEmpleadoLogin.usuario" required matInput  placeholder="Usuario">
+    </mat-form-field><br>
+    <mat-form-field>
+      <input [(ngModel)]="miEmpleadoLogin.clave" matInput required type="password" placeholder="Clave">
+    </mat-form-field>
+  </div>
+    <button mat-button (click)="onNoClick()" class="btn btn-secondary">Cancelar</button>
+    <button mat-button [mat-dialog-close] = "miEmpleadoLogin" cdkFocusInitial class="btn btn-success" [disabled]="!captchaResolved">Aceptar</button>
+    <br/><br/>
+      <re-captcha name="captcha" [(ngModel)]="captcha" (resolved)="resolved($event)" required siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU"></re-captcha>
+  <!-- <div mat-dialog-actions > -->
+<!-- </div> -->

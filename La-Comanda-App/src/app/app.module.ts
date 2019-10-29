@@ -12,7 +12,8 @@ import {MatButtonModule,
         MatFormFieldModule, 
         MatSliderModule,
         MatInputModule,
-        MatSelectModule} from '@angular/material';
+        MatSelectModule,
+        MatTableModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { PagenotfoundComponent } from './componentes/pagenotfound/pagenotfound.component';
@@ -25,6 +26,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import {RecaptchaModule,RecaptchaFormsModule} from 'ng-recaptcha';
+import { PedidosComponent } from './componentes/pedidos/pedidos.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +39,8 @@ import { MatListModule } from '@angular/material/list';
     AltaComponent,
     BienvenidoComponent,
     CabeceraComponent,
-    MatcabeceraComponent
+    MatcabeceraComponent,
+    PedidosComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,10 @@ import { MatListModule } from '@angular/material/list';
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    RecaptchaModule.forRoot(),
+    RecaptchaFormsModule
     ],
     entryComponents:[LoginComponent],
   providers: [],
