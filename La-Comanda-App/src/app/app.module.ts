@@ -19,7 +19,6 @@ import {HttpClientModule} from '@angular/common/http';
 import { PagenotfoundComponent } from './componentes/pagenotfound/pagenotfound.component';
 import { AltaComponent } from './componentes/alta/alta.component';
 import { BienvenidoComponent } from './componentes/bienvenido/bienvenido.component';
-import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 import { MatcabeceraComponent } from './componentes/matcabecera/matcabecera.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -38,7 +37,6 @@ import { PedidosComponent } from './componentes/pedidos/pedidos.component';
     PagenotfoundComponent,
     AltaComponent,
     BienvenidoComponent,
-    CabeceraComponent,
     MatcabeceraComponent,
     PedidosComponent
   ],

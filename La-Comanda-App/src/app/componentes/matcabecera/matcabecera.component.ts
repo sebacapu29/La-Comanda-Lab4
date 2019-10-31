@@ -30,6 +30,7 @@ export class MatcabeceraComponent {
 
   ngOnInit() {  
     this.isLogin = this.loginService.isLoggedIn();
+    this.msjBienvenida = this.isLogin ? localStorage.getItem("usuarioDesc") : "";
     this.loginService.changeLoginStatus$.subscribe((loggedStatus:boolean)=> {this.isLogin = loggedStatus});
   }
   public resolved(captchaResponse: string) {
@@ -46,6 +47,7 @@ export class MatcabeceraComponent {
             console.log(res);
               if(res.status!=500){
                 localStorage.setItem("usuarioToken",JSON.stringify(res.token));
+                localStorage.setItem("usuarioDesc",JSON.stringify(res.respuesta));
                 this.isLogin=true;
                 this.msjBienvenida = res.respuesta;
               }
@@ -97,6 +99,7 @@ export class MatcabeceraComponent {
   }
   logOut(){
     localStorage.removeItem("usuarioToken");
+    localStorage.removeItem("usuarioDesc");
     this.isLogin =false;
   }
 }
