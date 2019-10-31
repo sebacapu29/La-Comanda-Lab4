@@ -37,17 +37,20 @@ export class MatcabeceraComponent {
   }
   openDialog():void{
     const dialogRef = this.dialog.open(LoginComponent,{height: 'auto',
-    width: '350px', data: 'mensaje'});
+    width: '280px', data: 'mensaje'});
     dialogRef.afterClosed().subscribe(res => {
 
       if(res != null){
+        console.log(res);
           this.loginService.Login(<IEmpleadoLogin>res).then(res=> {
+            console.log(res);
               if(res.status!=500){
                 localStorage.setItem("usuarioToken",JSON.stringify(res.token));
                 this.isLogin=true;
                 this.msjBienvenida = res.respuesta;
               }
               else{
+                // console.log(res);
                 alert("Error, usuario o contraseña incorrecta");
               }
           }).finally(()=>{      
@@ -66,7 +69,8 @@ export class MatcabeceraComponent {
     const helper = new JwtHelperService();
     const token = localStorage.getItem("usuarioToken");      
     const decodedToken = helper.decodeToken(token);
-    console.log(decodedToken.data);
+    if(decodedToken!=null){
+    // console.log(decodedToken.data);
 
     switch (decodedToken.data.tipo) {
       case 1:
@@ -89,6 +93,7 @@ export class MatcabeceraComponent {
       default:
         break;
     }
+  }
   }
   logOut(){
     localStorage.removeItem("usuarioToken");

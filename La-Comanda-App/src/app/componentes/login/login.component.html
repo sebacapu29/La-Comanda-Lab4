@@ -10,6 +10,8 @@
     <button mat-button (click)="onNoClick()" class="btn btn-secondary">Cancelar</button>
     <button mat-button [mat-dialog-close] = "miEmpleadoLogin" cdkFocusInitial class="btn btn-success" [disabled]="!captchaResolved">Aceptar</button>
     <br/><br/>
-      <re-captcha name="captcha" [(ngModel)]="captcha" (resolved)="resolved($event)" required siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU"></re-captcha>
+    <div style="transform:scale(0.7);transform-origin:0;">
+      <re-captcha name="captcha" [(ngModel)]="captcha" (resolved)="resolved($event)" required></re-captcha>
+    </div>
   <!-- <div mat-dialog-actions > -->
 <!-- </div> -->

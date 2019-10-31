@@ -1,10 +1,11 @@
 export interface IEmpleadoLogin{
     usuario:string;
     clave:string;
+    captcha:string;
 }
 
 export class Empleado implements IEmpleadoLogin {
-    
+    captcha: string;
     usuario: string;    
     clave: string;
     tipo: string;

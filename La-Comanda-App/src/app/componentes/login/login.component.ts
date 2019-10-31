@@ -32,5 +32,6 @@ export class LoginComponent implements OnInit {
     resolved(captchaResponse: string) {
       // console.log(`Resolved captcha with response: ${captchaResponse}`);
       this.captchaResolved = true;
+      this.miEmpleadoLogin.captcha = captchaResponse;
   }
 }

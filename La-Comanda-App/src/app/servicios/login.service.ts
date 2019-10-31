@@ -16,26 +16,17 @@ export class LoginService {
 
   Login(empleadoLogin:IEmpleadoLogin){
     
-    const paramLogin = "/empleado/login";
-    const bodyLogin = {usuario:empleadoLogin.usuario,clave:empleadoLogin.clave};
-    return this.loginService.postRequest(paramLogin,bodyLogin)
-                     .toPromise();
-  }
-  validarCaptcha(strCaptcha:string){
-    const paramLogin = "/recaptacha";
-    const bodyLogin = {captcha:strCaptcha};
+    const paramLogin = "/empleado/logincapt";
+    const bodyLogin = {usuario:empleadoLogin.usuario,clave:empleadoLogin.clave,captcha:empleadoLogin.captcha};
     return this.loginService.postRequest(paramLogin,bodyLogin)
                      .toPromise();
   }
   isLoggedIn(){
     const usuarioLogueado = localStorage.getItem("usuarioToken"); 
     if(usuarioLogueado){
-      // this.cabecera.isLogin=true;
       return true;
     }
     else{
-      // this.router.navigate(['/cabecera']);
-      // this.cabecera.openDialog();
       return false;
     }
   }
