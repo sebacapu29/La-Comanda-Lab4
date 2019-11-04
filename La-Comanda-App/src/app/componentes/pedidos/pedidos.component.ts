@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {MatTableDataSource} from '@angular/material/table';
-import * as jsPDF from 'jspdf';
+import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
+import {MatTableDataSource, MatTable} from '@angular/material/table';
+import { HelperApi } from 'src/app/clases/helper-api';
+import { PedidoService } from 'src/app/servicios/pedido.service';
 
 @Component({
   selector: 'app-pedidos',
@@ -10,26 +11,40 @@ import * as jsPDF from 'jspdf';
 
 export class PedidosComponent implements OnInit {
 
-  constructor() { }
+  public helper:HelperApi = new HelperApi();
+  @ViewChild('tablaPedido', {static: false}) tablaPedido : ElementRef;
+
+  constructor(private pedidoService:PedidoService) { }
 
   ngOnInit() {
   }
+
   displayedColumns: string[] = ['estado', 'tiempoestimado', 'tiempoentrega', 'codigo','idmesa','cliente','foto','importe'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  dataSource = new MatTableDataSource();
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
   downloadPDF(){
-    var doc = new jsPDF();
-    doc.setFontSize(35);
-    doc.text(35, 25, 'Pedido Test');
-    doc.text(35, 40, 'Pedido Test');
-    doc.text(35, 55, 'Pedido Test');
-    doc.text(35, 70, 'Pedido Test');
-    doc.text(35, 85, 'Pedido Test')
-  
-    doc.save('Pedidos.pdf');
+    this.helper.downloadPDF(this.dataSource.data);
+  }
+  traerPedidos(){
+    const token = localStorage.getItem("usuarioToken");
+    const pedidoStored = localStorage.getItem("pedidos");
+    if(pedidoStored==null){
+      this.pedidoService.getPedidos(token).then(res => {
+        this.dataSource.data = res.respuesta;
+        localStorage.setItem("pedidos",JSON.stringify(res.respuesta));
+        console.log(res);
+      });
+    }
+    else{
+      this.dataSource.data = JSON.parse(pedidoStored);
+    }
+  }
+  downloadExcel(){
+    this.helper.downloadFile(this.dataSource.data);
   }
 }
 export interface Pedidos {

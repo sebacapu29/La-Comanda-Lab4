@@ -7,7 +7,6 @@ import { LoginService } from 'src/app/servicios/login.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { IEmpleadoLogin } from 'src/app/clases/empleado';
-import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-matcabecera',
@@ -29,6 +28,7 @@ export class MatcabeceraComponent {
   public recaptcha:boolean=false;
 
   ngOnInit() {  
+
     this.isLogin = this.loginService.isLoggedIn();
     this.msjBienvenida = this.isLogin ? localStorage.getItem("usuarioDesc") : "";
     this.loginService.changeLoginStatus$.subscribe((loggedStatus:boolean)=> {this.isLogin = loggedStatus});
@@ -56,7 +56,6 @@ export class MatcabeceraComponent {
                 alert("Error, usuario o contraseña incorrecta");
               }
           }).finally(()=>{      
-              this.verificarTipoEmpleado();
           });
         }      
      });
@@ -67,39 +66,10 @@ export class MatcabeceraComponent {
   verListaPedidos(){
     this.router.navigateByUrl("/pedidos")
   }
-  verificarTipoEmpleado(){
-    const helper = new JwtHelperService();
-    const token = localStorage.getItem("usuarioToken");      
-    const decodedToken = helper.decodeToken(token);
-    if(decodedToken!=null){
-    // console.log(decodedToken.data);
-
-    switch (decodedToken.data.tipo) {
-      case 1:
-        
-        break;
-        case 2:
-        
-        break;
-        console.log("Bienvenido Cocinero"); 
-        case 3:
-        
-        break;
-        case 4:
-        
-        break;
-        case 6:
-        console.log("Bienvenido Administrador"); 
-        break;
-
-      default:
-        break;
-    }
-  }
-  }
   logOut(){
     localStorage.removeItem("usuarioToken");
     localStorage.removeItem("usuarioDesc");
+    localStorage.removeItem("pedidos");
     this.isLogin =false;
   }
 }

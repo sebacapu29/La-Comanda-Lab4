@@ -3,7 +3,7 @@
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
  </mat-form-field>
       
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="opacity: 0.8">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="opacity: 0.8" id="tablaPedido">
       
         <!-- Position Column -->
         <ng-container matColumnDef="estado" >
@@ -54,4 +54,6 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
 
-      <button class="btn btn-primary" (click)="downloadPDF()">Exportar PDF</button>
+      <button class="btn btn-secondary" (click)="downloadPDF()">Exportar PDF</button>
+      <button class="btn btn-primary" (click)="downloadExcel()" >Exportar Excel</button>
+      <button class="btn btn-info" (click)="traerPedidos()" >TraerPedidos</button>

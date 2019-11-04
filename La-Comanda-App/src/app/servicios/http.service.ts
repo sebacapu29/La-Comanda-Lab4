@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class HttpService {
 
-  public urlBase:string = "https://cors-anywhere.herokuapp.com/"+"http://sebacapurrolacomanda.000webhostapp.com"; //LOCAL
-  // public urlBase:string = "https://cors-anywhere.herokuapp.com/"+"https://sebacapurrolacomanda.000webhostapp.com"; // DEPLOYADA
+  // public urlBase:string = "https://cors-anywhere.herokuapp.com/"+"http://sebacapurrolacomanda.000webhostapp.com"; //LOCAL
+  public urlBase:string = "https://cors-anywhere.herokuapp.com/"+"https://sebacapurrolacomanda.000webhostapp.com"; // DEPLOYADA
 
   constructor(private http:HttpClient) { }
 
@@ -19,10 +19,13 @@ export class HttpService {
   }
   postRequest(urlParams:string, pBody:any):Observable<any>{
     const getUrl = this.urlBase + urlParams;
-    // console.log(pBody);
-    // const bodyJson= JSON.stringify(pBody);
-    // const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
-    // headers.append("Access-Control-Allow-Origin", "*");
     return this.http.post(getUrl,pBody);
+  }
+  getRequestWithToken(token:string,urlParams:string):Observable<any>{
+    let headers = new HttpHeaders();
+    headers = headers.set('token', JSON.parse(token));
+    const getUrl = this.urlBase + urlParams;
+    
+    return this.http.get(getUrl, {headers:headers});
   }
 }

@@ -27,6 +27,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {RecaptchaModule,RecaptchaFormsModule, RECAPTCHA_SETTINGS, RecaptchaSettings} from 'ng-recaptcha';
 import { PedidosComponent } from './componentes/pedidos/pedidos.component';
+import { HelperApi } from './clases/helper-api';
+import { CanActivateGuard } from './can-activate.guard';
 
 
 @NgModule({
@@ -60,7 +62,7 @@ import { PedidosComponent } from './componentes/pedidos/pedidos.component';
     MatListModule,
     MatTableModule,
     RecaptchaModule.forRoot(),
-    RecaptchaFormsModule
+    RecaptchaFormsModule,
     ],
     entryComponents:[LoginComponent],
   providers: [{
@@ -68,7 +70,10 @@ import { PedidosComponent } from './componentes/pedidos/pedidos.component';
     useValue: {
       siteKey: '6LddNr8UAAAAANgAoIyV_M0dhoziZUJVB-kxJYc0',
     } as RecaptchaSettings,
-  }],
+  },
+  HelperApi,
+  CanActivateGuard,
+  LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

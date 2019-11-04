@@ -17,6 +17,8 @@ export class CanActivateGuard implements CanActivate {
         return true;
       }
       else{
+        // alert("Debe loguearse");    
+        this.router.navigateByUrl("");
         return false;
       }
     
